@@ -15,7 +15,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 	
     <!-- MetisMenu CSS -->
     <!-- <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet"> -->
@@ -39,6 +39,16 @@
    <!--  [if lt IE 9]> -->
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+       <script type="text/javascript" src="assets\js\jquery.backstretch.js"></script>
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/js/jquery/test/jquery.backstretch.min.js"></script>
+
+
+
     <!-- <![endif] -->
 
 	<!-- Do not remove. Can't access the header.-->
@@ -51,39 +61,22 @@
 	}
 	</style>
 	
-	<!-- jQuery -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="js/plugins/metisMenu/metisMenu.min.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="js/sb-admin-2.js"></script>
-
-	<script src="js/plugins/notify/prettify.js"></script>
-	<script src="js/plugins/notify/notify.js"></script>
-	<script src="js/jquery.backstretch.js"></script>
-	
-	<!-- sweetalert -->
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<?php include('includes/links.php');?>
 </head>
 
 <body>
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
-            <div class="login-panel panel panel-default" style ="border: 5px solid white; border-radius: 5px; opacity: 0.8;">
-                <div class="panel-heading" style="background: #C90000; padding: 2px;">
-                    <img src="img/find_user.png" class="user-image img-responsive"/>
+            <div class="login-panel panel panel-default" style ="border: 5px solid white; border-radius: 5px;">
+                <div class="panel-heading" style="background: ; padding: 2px;">
+                    <img src="assets/img/nakuruCountyLogo.jpg" class="user-image img-responsive"/>
                 </div>
                 <div class="panel-body">
                 <div class="panel-heading">
                     <h3 class="panel-title">Sign in here</h3>
                 </div>
-                   <form type="text" method="post" action="" id="login-form" autocomplete="off">
+                   <form type="text" method="post" action="admin/login.php" id="" autocomplete="off">
                         <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Username" name="username" type="text" pattern="^[a-zA-Z.]+$" autofocus required>
@@ -109,18 +102,21 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-                <a class="navbar-brand" href="#" style="color: white">County Projects Monitoring System</a>
+                <a class="navbar-brand" href="#" style="color: white">County Projects Management System</a>
 		</div>
 		<!-- /.navbar-header -->
 	</nav>
+
     <div class="container">
         <div class="row">
         
+
+      
         <!-- Start Welcome Message -->
         
         <div class="col-md-4 col-md-offset-8">
                 <div class="login-panel panel panel-default" style ="border: 5px solid white; border-radius: 5px; opacity: 0.8;">
-                    <div class="panel-heading" style="background: #C71585; padding: 2px; ">
+                    <div class="panel-heading" style="background:  padding: 2px; ">
                         <img src="assets/img/nakuruCountyLogo.jpg" class="img-responsive"/>
                     </div>
                     <div class="panel-body">
@@ -139,17 +135,19 @@
     </div>
  <!-- End Welcome Message -->   
 
-<script>
-	$.backstretch([
-		"img/agric.jpg",
-		"img/emali.jpg",
-		"img/makongo.jpg"
-		], {
-		fade: 750,
-		duration: 4000
-	});
 
+<script>
+    $.backstretch([
+      "pot-holder.jpg",
+      "coffee.jpg",
+      "dome.jpg"
+      ], {
+        fade: 750,
+        duration: 4000
+    });
 </script>
+
+
 
 </body>
 </html>

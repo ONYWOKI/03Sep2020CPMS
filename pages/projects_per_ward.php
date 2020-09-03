@@ -11,6 +11,7 @@ $(document).ready(function(){
     });
 });
 </script> -->
+
 <script>
 $(document).ready(function(){
   $('.dropdown a.dropdown-toggle').on("click", function(e){
@@ -20,7 +21,6 @@ $(document).ready(function(){
   });
 });
 </script>
-
 </head>
 
 <body>
@@ -90,21 +90,21 @@ $(document).ready(function(){
 
 
 
-         <div id="page-wrapper">
-            <div class="row">
-            <!-- Projects per Sub-county Bar Chart -->
-                <div class="col-lg-12">
+        <!--  <div id="page-wrapper"> -->
+            <!-- <div class="row"> -->
+            <!--  Projects per Sub-county Bar Chart -->
+              <!--   <div class="col-lg-12"> -->
                     <!-- /.panel -->
-                    <div class="panel panel-default">
+                    <!-- <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Total Projects per Sub-county
-                        </div>
+                        </div> -->
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <iframe src="../charts/subcounty_index.php" style="border:0; height: 450px; width:100%;"></iframe>
-                                </div>
+                        <!-- <div class="panel-body">
+                            <div class="row"> -->
+                                <!-- <div class="col-lg-12">
+                                    <iframe src="../charts/ward_index.php" style="border:0; height: 450px; width:100%;"></iframe>
+                                </div> -->
                                 <!-- /.col-lg-12 (nested) -->
                             </div>
                             <!-- /.row -->
@@ -114,21 +114,22 @@ $(document).ready(function(){
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
+            </div> -->
 
 
             <!-- /.row -->
-            <div class="row">
+                     <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4>Below is a list of sub-counties,click on the drop down arrow to select a sub county.</h4>
+                            <h4>Below is a list of wards,click on the drop down arrow to select a ward.</h4>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         <select id="3"  class="search-input-select">
-                            <option value="">Select Sub-county</option>
-                                <option value= 'Njoro' >Njoro</option><option value= 'Subukia' >Subukia</option><option value= 'Bahati' >Bahati</option><option value= 'Rongai' >Rongai</option><option value= 'Kuresoi South' >Kuresoi South</option><option value= 'Kuresoi North' >Kuresoi North</option><option value= 'Naivasha' >Naivasha</option><option value= 'Gilgil' >Gilgil</option><option value= 'Molo' >Molo</option><option value= 'Nakuru Town East' >Nakuru Town East</option><option value= 'Nakuru Town West' >Nakuru Town West</option><option value= 'All Sub-counties' >All Sub-counties</option>                            </select> <strong>Sub-county</strong><br><br>
+                            <option value="">Select a Ward</option>
+                                <option value= 'Biashara' >Biashara</option><option value= 'Kivumbini' >Kivumbini</option><option value= 'Flamingo' >Flamingo</option><option value= 'Menengai' >Menengai</option><option value= 'Nakuru East' >Nakuru East</option><option value= 'Barut' >Barut</option><option value= 'London' >London</option><option value= 'Kaptembwa' >Kaptembwa</option><option value= 'Kapkures' >Kapkures</option><option value= 'Rhoda' >Rhoda</option><option value= 'Shabab' >Shabab</option><option value= 'Mau Narok' >Mau Narok</option><option value= 'Mauche' >Mauche</option><option value= 'Kihingo' >Kihingo</option><option value= ' Nesuit' > Nesuit</option><option value= 'Lare' >Lare</option><option value= 'Njoro' >Njoro</option><option value= 'Mariashoni' >Mariashoni</option><option value= 'Elburgon' >Elburgon</option><option value= 'Turi' >Turi</option><option value= 'Molo' >Molo</option><option value= 'Gilgil' >Gilgil</option><option value= 'Elementaita' >Elementaita</option><option value= 'Mbaruk/Eburu' >Mbaruk/Eburu</option><option value= 'Malewa West' >Malewa West</option><option value= ' Murindat' > Murindat</option><option value= 'Biashara' >Biashara</option><option value= 'Hellsgate' >Hellsgate</option><option value= 'Lakeview' >Lakeview</option><option value= 'Maai Mahiu' >Maai Mahiu</option><option value= 'Maeilla' >Maeilla</option><option value= 'Olkaria' >Olkaria</option><option value= 'Naivasha East' >Naivasha East</option><option value= 'Viwandani' >Viwandani</option><option value= 'Kiptororo' >Kiptororo</option><option value= 'Nyota' >Nyota</option><option value= 'Sirikwa ' >Sirikwa</option><option value= 'Kamara' >Kamara</option><option value= 'Amalo' >Amalo</option><option value= 'Keringet' >Keringet</option><option value= 'Kiptagich' >Kiptagich </option><option value= 'Tinet' >Tinet</option><option value= 'Menengai West' >Menengai West</option><option value= 'Soin' >Soin</option><option value= 'Visoi' >Visoi</option><option value= 'Mosop' >Solai</option><option value= 'Subukia' >Subukia</option><option value= 'Weseges ' >Weseges </option><option value= 'Kabazi' >Kabazi</option><option value= 'Dundori' >Dundori</option><option value= 'Kabatini' >Kabatini</option><option value= 'Kiamaina' >Kiamaina</option><option value= 'Lanet/Umoja' >Lanet/Umoja</option><option value= 'Bahati' >Bahati</option><option value= 'All Wards' >All Wards</option></select> <strong>Ward</strong><br><br>
+
 
                        <?php  
  $connect = mysqli_connect("localhost", "root", "", "cpms_project");  

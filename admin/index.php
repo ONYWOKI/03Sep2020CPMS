@@ -4,13 +4,14 @@
      <?php include('../includes/links.php');?>
 <!-- <script>
 $(document).ready(function(){
-    $('#memListTable').DataTable({
+    $('#county_data').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": "getData.php"
     });
 });
 </script> -->
+
 <script>
 $(document).ready(function(){
   $('.dropdown a.dropdown-toggle').on("click", function(e){
@@ -20,7 +21,6 @@ $(document).ready(function(){
   });
 });
 </script>
-
 </head>
 
 <body>
@@ -65,7 +65,7 @@ $(document).ready(function(){
                 <a href="../pages/projects.php"><i class="fa fa-bar-chart-o fa-fw"></i> Projects</a>
             </li>
             <li>
-                <a href="#"  type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope fa-fw"></i> Give Feedback</a>
+                <a href="viewFeedback.php"  type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope fa-fw"></i> View Feedback</a>
 
             </li>
             <li class="dropdown">
@@ -87,50 +87,7 @@ $(document).ready(function(){
 
             <!-- /.navbar-static-side -->
         </nav>
-
-
-
-         <div id="page-wrapper">
-            <div class="row">
-            <!-- Projects per Sub-county Bar Chart -->
-                <div class="col-lg-12">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Total Projects per Sub-county
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <iframe src="../charts/subcounty_index.php" style="border:0; height: 450px; width:100%;"></iframe>
-                                </div>
-                                <!-- /.col-lg-12 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-
-
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4>Below is a list of sub-counties,click on the drop down arrow to select a sub county.</h4>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                        <select id="3"  class="search-input-select">
-                            <option value="">Select Sub-county</option>
-                                <option value= 'Njoro' >Njoro</option><option value= 'Subukia' >Subukia</option><option value= 'Bahati' >Bahati</option><option value= 'Rongai' >Rongai</option><option value= 'Kuresoi South' >Kuresoi South</option><option value= 'Kuresoi North' >Kuresoi North</option><option value= 'Naivasha' >Naivasha</option><option value= 'Gilgil' >Gilgil</option><option value= 'Molo' >Molo</option><option value= 'Nakuru Town East' >Nakuru Town East</option><option value= 'Nakuru Town West' >Nakuru Town West</option><option value= 'All Sub-counties' >All Sub-counties</option>                            </select> <strong>Sub-county</strong><br><br>
-
-                       <?php  
+       <?php  
  $connect = mysqli_connect("localhost", "root", "", "cpms_project");  
  $query ="SELECT * FROM projects ORDER BY project_id DESC";  
  $result = mysqli_query($connect, $query);  
@@ -148,10 +105,13 @@ $(document).ready(function(){
       <body>  
            <br /><br />  
            <div class="container" id="page-wrapper">  
-                <h3 align="center"></h3>  
+                <h3 align="center">County Projects</h3>  
                 <br />  
-                <div class="table-responsive" id="table_data" >  
-                     <table id="county_data" class="table table-striped table-bordered" style="width: 100%">  
+                <div class="table-responsive"> 
+                <div align="right">
+					<button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg">Add Project</button><br><br>
+				</div> 
+                     <table id="county_data" class="table table-striped table-bordered col-12" style="width: 100%">  
                           <thead>
                                     <tr>
                                         <th>Projects</th>
@@ -161,6 +121,7 @@ $(document).ready(function(){
                                         <th>Status</th>
                                         <th>FY</th>
                                         <th>Budget</th>
+                                         <th>Action</th>
                                     </tr>
                                 </thead>  
                           <?php  
@@ -175,51 +136,111 @@ $(document).ready(function(){
                                     <td>'.$row["status"].'</td>  
                                     <td>'.$row["FY"].'</td>  
                                     <td>'.$row["budget"].'</td>  
+
                                </tr>  
+
                                ';  
                           }  
                           ?>  
-                     </table>  
+                     </table>
+
+                     <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js "></script>
+    
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#county_data').DataTable({
+       dom: 'Bfrtip',
+       buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+    });
+} );
+</script>  
                 </div>  
            </div>  
       </body>  
  </html>  
- <script>  
+<!--  <script>  
  $(document).ready(function(){  
       $('#county_data').DataTable();  
  });  
- </script>  
-        <!-- /#page-wrapper -->
-         <!-- /#page-wrapper -->
-        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 id="myModalLabel">Please Give Us Your Feedback</h3>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal col-sm-12" action="feedback.php" method="post">
-                    <div class="form-group"><label>Name</label><input name="name" value="" class="form-control required" placeholder="Your name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." type="text" required></div>
-                    <div class="form-group"><label>Message</label><textarea  name="message" id="message" value="" class="form-control" placeholder="Your message here.." data-placement="top" data-trigger="manual" required></textarea>Remaining: <b><span class="remaining">150</span></b></div>
-                    <div class="form-group"><label>E-Mail</label><input name="email"  value="" class="form-control email" placeholder="email@you.com (Optional)" data-placement="top" data-trigger="manual" data-content="Must be a valid e-mail address (user@gmail.com)" type="text"></div>
-                    <div class="form-group"><label>Phone</label><input name="phone"  value="" class="form-control phone" placeholder="+254...(So that we can contact you)" data-placement="top" data-trigger="manual" data-content="Must be a valid phone number" type="text" required></div>
-                    <input type="hidden" value="" name="project_id" class="project_id"/>
-                    <div class="form-group"><button type="submit" name="save" class="btn btn-success pull-right">Send</button></div>
-                </form>
-            </div>              
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
- <!--  -->
-    
-    </div>
+ </script>  -->
+ 
+        <!--  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> -->
+<!-- 
+    <script type="text/javascript">
+        
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+    </script> -->
+   </div>
+
             <!-- /.row -->
             <!--  -->
    <?php include('../includes/modal.php');?>
+   <div id="userModal" class="modal fade">
+	<div class="modal-dialog">
+		<form method="post" id="user_orm" enctype="multipart/form-data" action="addProjects.php">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add User</h4>
+				</div>
+				<div class="modal-body">
+					<label>Project Name</label>
+					<input type="text" name="project" id="project_name" class="form-control" />
+					<br/>
+					<label>Department</label>
+					<input type="text" name="department" id="department" class="form-control" />
+					<br />
+					<label>Ward</label>
+					<input type="text" name="ward" id="ward" class="form-control" />
+					<br />
+					<label>Location</label>
+					<input type="text" name="location" id="location" class="form-control" />
+					<br />
+					<label>Status</label>
+					<input type="text" name="status" id="status" class="form-control" />
+					<br />
+					<label>Financial Year</label>
+					<input type="text" name="FY" id="financial_year" class="form-control" />
+					<br />
+					<label>Budget</label>
+					<input type="text" name="budget" id="budget" class="form-control" />
+					<br />
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" name="user_id" id="user_id" />
+					<input type="hidden" name="operation" id="operation" />
+					<input type="submit" name="action" id="action" class="btn btn-success" value="Add" name="save" />
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
     
     </div>
 <footer class="footer">
@@ -228,12 +249,47 @@ $(document).ready(function(){
   </div>
 </footer>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript">
+ 		var dataTable = $('#county_data').DataTable({
+		"processing":true,
+		"serverSide":true,
+		"order":[],
+		"ajax":{
+			url:"fetch.php",
+			type:"POST"
+		},
+		"columnDefs":[
+			{
+				// "targets":[0, 3, 4],
+				// "orderable":false,
+			},
+		],
 
+	});
+ </script> 
+
+<script type="text/javascript">
+$(document).on('click', '.update', function(){
+		var user_id = $(this).attr("id");
+		$.ajax({
+			url:"fetch_single.php",
+			method:"POST",
+			data:{project_id:project_id},
+			dataType:"json",
+			success:function(data)
+			{
+				$('#userModal').modal('show');
+				$('#first_name').val(data.first_name);
+				$('#last_name').val(data.last_name);
+				$('.modal-title').text("Edit User");
+				$('#user_id').val(user_id);
+				$('#user_uploaded_image').html(data.user_image);
+				$('#action').val("Edit");
+				$('#operation').val("Edit");
+			}
+		})
+	});
+</script>
 </body>
 
 </html>

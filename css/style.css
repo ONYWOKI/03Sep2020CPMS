@@ -1,13 +1,14 @@
-body{
+body div .wrapper{
 	margin-top: 0px;
 	margin-bottom: 0px;
-	font-size: 30px;
-	font-size: 
+	font-size: 62%;
+	font-size: 14px;
+	position: relative;
 }
-.wrapper{
-	background-color: green;
+div.wrapper{
+	font-size: 12px;
 	height: 100%;
-
+	width: 100%;
 }
 .navbartoggle{
 	background-color: inherit;
@@ -30,17 +31,20 @@ body{
 	float: left;
 	position: relative;
 	height: 500px;
-	margin: 5px;
+	
 	height: 100vh;
+	padding: 0;
+	/*background-color: red;*/
 
 }
 .navbar-header{
 	width: 100%;
 }
 #page-wrapper{
-	width: calc(100% - 270px);
+	width: calc(100% - 260px);
 	float: left;
 	margin-left: 30px;
+	padding: 0px;
 
 }
 
@@ -49,15 +53,21 @@ body{
 	position: relative;
 	background-color: inherit;
 	height: 100vh;
+	/*background-color: green;*/
+	width: 230px;	
+
+	
 }
 .footer{
 	margin-bottom: 0px;
-}
-.footer{
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
+	height: 30px;
+	
+	text-align: center;
+	font-size: 14px;
 }
 
 .panel-green {
@@ -68,7 +78,7 @@ background-color: #4b7720;
 border-color: #7dc736;
 color: #FFFFFF;
 }
-.panel-green  {
+/*.panel-green  {
 background: #649f2b;
 border-color: #7dc736;
 color: #FFFFFF;
@@ -76,7 +86,7 @@ color: #FFFFFF;
 .panel-green [class^="fa-"]:before,
 .panel-green [class*=" fa-"]:before {
 color: rgba(255, 255, 255, 0.8);
-margin-right: 5px;
+margin-right: 5px;*/
 }
 .panel-yellow {
 border-color: #d0b426;
@@ -86,7 +96,7 @@ background-color: #a58f1e;
 border-color: #dec64b;
 color: #FFFFFF;
 }
-.panel-yellow {
+/*.panel-yellow {
 background: #d0b426;
 border-color: #dec64b;
 color: #FFFFFF;
@@ -95,8 +105,8 @@ color: #FFFFFF;
 .panel-yellow [class*=" fa-"]:before {
  color: rgba(255, 255, 255, 0.8);
  margin-right: 5px;
- }
- .panel-yellow  {
+ }*/
+ /*.panel-yellow  {
 background: #d0b426;
 border-color: #dec64b;
 color: #FFFFFF;
@@ -104,7 +114,7 @@ color: #FFFFFF;
 .panel-yellow [class^="fa-"]:before,
 .panel-yellow [class*=" fa-"]:before {
  color: rgba(255, 255, 255, 0.8);
- margin-right: 5px;
+ margin-right: 5px;*/
  
  }
  #reports{
@@ -118,12 +128,16 @@ color: #FFFFFF;
  div span #pull_left{
 	color: #FFFFFF;
  }
- .panel-footer{
- 	
+ #table_data{
+ 	width: 1000px;
+ 
  }
-.page_wrapper{
-	margin-top: 
-}
+ #county_data{
+ 	width: auto;
+ 	margin: auto;
+ }
+ 
+ 
 
  
 

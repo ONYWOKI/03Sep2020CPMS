@@ -3,16 +3,11 @@
     <head>
    <?php include('../includes/links.php');?>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
-           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/> 
-
 </head>
+
 <script>
 $(document).ready(function(){
-  $('.dropdown a.dropdown-toggle').on("click", function(e){
+  $('.dropdown-submenu a.test').on("click", function(e){
     $(this).next('ul').toggle();
     e.stopPropagation();
     e.preventDefault();
@@ -61,24 +56,29 @@ $(document).ready(function(){
             <li>
                 <a href="../pages/projects.php"><i class="fa fa-bar-chart-o fa-fw"></i> Projects</a>
             </li>
-            <li>
+            <li style="margin-bottom: -10px">
                 <a href="#"  type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope fa-fw"></i> Give Feedback</a>
 
-            </li>
-           <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" id="navbarDropdown reports" role="" data-toggle="dropdown" aria-haspopup="true" aria-expanded=""> <i class="fa fa-bar-chart-o fa-fw"></i>Report</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="border:none; margin-left: 20px;">
-                            <li><a href="projects_per_subcounty.php">Projects by Sub-county</a></li>
-                            <li><a href="projects_per_ward.php">Projects by Ward</a></li>
-                            <li><a href="projects_per_subward.php">Projects by Sub-ward</a></li>
-                            <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects by status</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="work_ongoing.php">Works ongoing</a></li>
-                                <li><a href="delayed.php">Delayed</a></li>
-                                <li><a href="complete.php">Complete</a></li>
-                        </ul>
-                    </li>
+            <li></ul>>
+<div class="container">                                       
+  <div class="dropdown">
+     <a class="dropdown-toggle" href="#" id="navbarDropdown" role="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bar-chart-o fa-fw"></i>Report</a>
+    <ul class="dropdown-menu">
+      <li><a tabindex="-1" href="projects_per_subcounty.php">Projects by Sub-county</a></li>
+      <li><a tabindex="-1" href="projects_per_ward.php">Projects by Ward</a></li>
+      <li><a tabindex="-1" href="projects_per_subward.php">Projects by Sub-ward</a></li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Projects by status <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="work_ongoing.php">Works ongoing</a></li>
+          <li><a tabindex="-1" href="delayed.php">Delayed</a></li>
+          <li><a tabindex="-1" href="complete.php">Complete</a></li>
+          
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
             </ul>      
     </div>
     <!-- /.sidebar-collapse -->
@@ -197,7 +197,7 @@ $(document).ready(function(){
                                                 </div>
                                                 <a href="#">
                                                         <div class="panel-footer">
-                                                                <span class="pull-left"><a href="delayed.php">View Details</a></span>
+                                                                <span class="pull-left"><a href="stalled.php">View Details</a></span>
                                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                                                 <div class="clearfix"></div>
                                                         </div>
@@ -242,7 +242,7 @@ $(document).ready(function(){
                                                 </div>
                                                 <a href="#">
                                                         <div class="panel-footer">
-                                                                <span class="pull-left"><a href="suspended.php">View Details</a></span>
+                                                                <span class="pull-left"><a href="stalled.php">View Details</a></span>
                                                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                                                 <div class="clearfix"></div>
                                                         </div>
@@ -252,57 +252,8 @@ $(document).ready(function(){
                         </div>
                         </div>
 
-         <div id="page-wrapper">
-            <div class="row">
-            <!-- Projects per Sub-county Bar Chart -->
-                <div class="col-lg-12">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Budget Allocation and Absorption Per Department 
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <iframe src="../charts/budget_Allocation_per_department.php" style="border:0; height: 450px; width:100%;"></iframe>
-                                </div>
-                                <!-- /.col-lg-12 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-
-             <div class="row">
-            <!-- Projects per Sub-county Bar Chart -->
-                <div class="col-lg-12">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i>Total Projects Per Department 
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <iframe src="../charts/total_projects_per_department.php" style="border:0; height: 450px; width:100%;"></iframe>
-                                </div>
-                                <!-- /.col-lg-12 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-
+            <!-- /.row -->
+            <!--  -->
     <!-- /#page-wrapper -->
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">

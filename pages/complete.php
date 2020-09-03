@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-     <?php include('../includes/links.php');?>
-<!-- <script>
+  <head>
+ <?php include('../includes/links.php');?>
+
+ <script>
 $(document).ready(function(){
     $('#memListTable').DataTable({
         "processing": true,
@@ -10,7 +11,8 @@ $(document).ready(function(){
         "ajax": "getData.php"
     });
 });
-</script> -->
+</script>
+
 <script>
 $(document).ready(function(){
   $('.dropdown a.dropdown-toggle').on("click", function(e){
@@ -21,14 +23,24 @@ $(document).ready(function(){
 });
 </script>
 
+    <style type="text/css">
+        .panel {
+    /*border: 1px solid rgb(127, 0, 0);*/
+    /*border: 1px solid rgba(204, 204, 204,*/ /*0.5);
+    -webkit-background-clip: padding-box;*/ /* for Safari */
+    /*background-clip: padding-box;*/ /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+    </style>
+
+  
+
 </head>
 
 <body>
 
-
     <div id="wrapper" class="wrapper">
-
-        <div class="navbar-header" style="background-color: #C71585">
+        <!-- Navigation -->
+      <div class="navbar-header" style="background-color: #C71585">
                 <button type="button" class="navbar-toggle navbartoggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -68,7 +80,7 @@ $(document).ready(function(){
                 <a href="#"  type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope fa-fw"></i> Give Feedback</a>
 
             </li>
-            <li class="dropdown">
+ <li class="dropdown">
                     <a class="dropdown-toggle" href="#" id="navbarDropdown reports" role="" data-toggle="dropdown" aria-haspopup="true" aria-expanded=""> <i class="fa fa-bar-chart-o fa-fw"></i>Report</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="border:none; margin-left: 20px;">
                             <li><a href="projects_per_subcounty.php">Projects by Sub-county</a></li>
@@ -84,55 +96,13 @@ $(document).ready(function(){
                     </li>
     </div>
     <!-- /.sidebar-collapse -->
-
+</div>
             <!-- /.navbar-static-side -->
         </nav>
 
-
-
-         <div id="page-wrapper">
-            <div class="row">
-            <!-- Projects per Sub-county Bar Chart -->
-                <div class="col-lg-12">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Total Projects per Sub-county
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <iframe src="../charts/subcounty_index.php" style="border:0; height: 450px; width:100%;"></iframe>
-                                </div>
-                                <!-- /.col-lg-12 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-
-
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4>Below is a list of sub-counties,click on the drop down arrow to select a sub county.</h4>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                        <select id="3"  class="search-input-select">
-                            <option value="">Select Sub-county</option>
-                                <option value= 'Njoro' >Njoro</option><option value= 'Subukia' >Subukia</option><option value= 'Bahati' >Bahati</option><option value= 'Rongai' >Rongai</option><option value= 'Kuresoi South' >Kuresoi South</option><option value= 'Kuresoi North' >Kuresoi North</option><option value= 'Naivasha' >Naivasha</option><option value= 'Gilgil' >Gilgil</option><option value= 'Molo' >Molo</option><option value= 'Nakuru Town East' >Nakuru Town East</option><option value= 'Nakuru Town West' >Nakuru Town West</option><option value= 'All Sub-counties' >All Sub-counties</option>                            </select> <strong>Sub-county</strong><br><br>
-
-                       <?php  
+<?php  
  $connect = mysqli_connect("localhost", "root", "", "cpms_project");  
- $query ="SELECT * FROM projects ORDER BY project_id DESC";  
+ $query ="SELECT * FROM projects WHERE status='complete' ORDER BY project_id DESC";  
  $result = mysqli_query($connect, $query);  
  ?>  
  <!DOCTYPE html>  
@@ -148,9 +118,9 @@ $(document).ready(function(){
       <body>  
            <br /><br />  
            <div class="container" id="page-wrapper">  
-                <h3 align="center"></h3>  
+                <h3 align="center">Complete Projects</h3>  
                 <br />  
-                <div class="table-responsive" id="table_data" >  
+                <div class="table-responsive">  
                      <table id="county_data" class="table table-striped table-bordered" style="width: 100%">  
                           <thead>
                                     <tr>
@@ -186,11 +156,14 @@ $(document).ready(function(){
  </html>  
  <script>  
  $(document).ready(function(){  
-      $('#county_data').DataTable();  
+      $('#county_data').DataTable(); 
+        //       "processing": true,
+        // "serverSide": true,
+        // "ajax": "getData.php" 
  });  
  </script>  
         <!-- /#page-wrapper -->
-         <!-- /#page-wrapper -->
+     <!-- /#page-wrapper -->
         <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -215,24 +188,39 @@ $(document).ready(function(){
     </div>
 </div>
  <!--  -->
-    
+  
     </div>
-            <!-- /.row -->
-            <!--  -->
-   <?php include('../includes/modal.php');?>
-    
-    </div>
+    <!-- /#wrapper -->
 <footer class="footer">
   <div class="">
     Copyright &copy; 2020 <a href="">Government of Nakuru County </a>
   </div>
 </footer>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<!--Start of Tawk.to Script-->
+
+<!--End of Tawk.to Script-->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+
+   <!--  <script type="text/javascript">
+      $(document).ready(function() {
+    $('#county_data').DataTable( {
+        // dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+    </script> -->
+    <script type="text/javascript">
+      
+
+    </script>
 
 </body>
 

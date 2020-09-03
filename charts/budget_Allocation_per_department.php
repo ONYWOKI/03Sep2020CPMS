@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Creating Dynamic Data Graph using PHP and Chart.js</title>
+<title>Charts</title>
 <style type="text/css">
 BODY {
     width: 550PX;
@@ -31,12 +31,12 @@ BODY {
         function showGraph()
         {
             {
-                $.post("data.php",
+                $.post("budget_Allocation_data.php",
                 function (data)
                 {
                     console.log(data);
                     data = JSON.parse(data)
-                     var location = data['locations'];
+                    var department = data['departments'];
                     var projects = data['data'];
 
                     // for (var i in data) {
@@ -45,10 +45,10 @@ BODY {
                     // }
 
                     var chartdata = {
-                        labels: location,
+                        labels: department,
                         datasets: [
                             {
-                                label: 'location',
+                                label: 'department',
                                 backgroundColor: '#49e2ff',
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',
